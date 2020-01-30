@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: service-gateway
+server:
+  port: 9005
+eureka:
+  client:
+    serviceUrl:
+      # eureka-server地址
+      defaultZone: http://127.0.0.1:8089/eureka/
+#这里的配置表示，访问/it/** 直接重定向到http://www.ityouknow.com/**
+zuul:
+  routes:
+    xp:
+      path: /producer/**
+      # 跳转到指定 url
+      #url: http://www.ityouknow.com/
+      # 根据 eureka的serviceId 跳转到指定服务
+      serviceId: service-provider
+    sn:
+      path: /consumer/**
+      serviceId: service-consumer
