@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: service-provider
+server:
+  port: 9012
+eureka:
+  client:
+    serviceUrl:
+      # eureka-server地址
+      defaultZone: http://localhost:8089/eureka/

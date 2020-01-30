@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: service-consumer
+server:
+  port: 9015
+eureka:
+  client:
+    serviceUrl:
+      # eureka-server地址
+      defaultZone: http://localhost:8089/eureka/
