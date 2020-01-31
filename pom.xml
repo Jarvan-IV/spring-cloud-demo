@@ -11,40 +11,54 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
-    <cloud.version>Greenwich.SR4</cloud.version>
+    <!--<cloud.version>Greenwich.SR4</cloud.version>-->
     <boot.version>2.1.11.RELEASE</boot.version>
   </properties>
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.1.11.RELEASE</version>
-    <relativePath/> <!-- lookup parent from repository -->
-  </parent>
-  <!--这儿使用的 spring boot 版本为 2.1.11.RELEASE-->
-  <dependencies>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter</artifactId>
-      <version>${boot.version}</version>
-      <exclusions>
+
+  <dependencyManagement>
+    <!--这儿使用的 spring boot 版本为 2.1.11.RELEASE-->
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+        <version>${boot.version}</version>
+        <exclusions>
           <exclusion>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
           </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.6</version>
-    </dependency>
-  </dependencies>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>2.6</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>2.1.11.RELEASE</version>
+      </dependency>
+      <!--这儿使用的 spring-cloud-starter-netflix-eureka 版本为 2.1.4.RELEASE-->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        <version>2.1.4.RELEASE</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        <version>2.1.4.RELEASE</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <!--<dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-dependencies</artifactId>
-        <version>${boot.version}</version>
+        <version>${cloud.version}</version>
         <type>pom</type>
         <scope>runtime</scope>
       </dependency>
