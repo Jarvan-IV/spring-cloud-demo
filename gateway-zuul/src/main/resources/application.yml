@@ -8,15 +8,15 @@ eureka:
     serviceUrl:
       # eureka-server地址
       defaultZone: http://127.0.0.1:8089/eureka/
-#这里的配置表示，访问/it/** 直接重定向到http://www.ityouknow.com/**
 zuul:
   routes:
-    xp:
-      path: /producer/**
-      # 跳转到指定 url
-      #url: http://www.ityouknow.com/
-      # 根据 eureka的serviceId 跳转到指定服务
-      serviceId: service-provider
+    #这里的配置表示，访问/consumer/** 直接重定向到 http://jarvan-iv.github.io/2019/10/02/spring%20cloud%E6%9C%8D%E5%8A%A1%E9%97%B4%E8%B0%83%E7%94%A8/
     sn:
       path: /consumer/**
-      serviceId: service-consumer
+      # 跳转到指定 url
+      url: http://jarvan-iv.github.io/2019/10/02/spring%20cloud%E6%9C%8D%E5%8A%A1%E9%97%B4%E8%B0%83%E7%94%A8/
+    #这里的配置表示，访问/producer/** 直接重定向到 服务service-provider对应的url上
+    xp:
+      path: /producer/**
+      #serviceId 为 eureka 注册的 服务名
+      serviceId: service-provider
