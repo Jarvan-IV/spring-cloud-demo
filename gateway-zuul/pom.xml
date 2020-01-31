@@ -18,11 +18,23 @@
   </properties>
 
   <dependencies>
-      <dependency>
+      <!--<dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-zuul</artifactId>
-        <version>1.4.4.RELEASE</version>
-      </dependency>
+        <version>1.4.7.RELEASE</version>
+      </dependency>-->
+    <!--spring-cloud-starter-netflix-zuul 即为以前的 spring-cloud-starter-zuul-->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+      <version>2.1.1.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+      <version>2.1.4.RELEASE</version>
+    </dependency>
+
   </dependencies>
 
   <build>

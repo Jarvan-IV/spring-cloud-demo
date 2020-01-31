@@ -11,38 +11,60 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
+    <cloud.version>Greenwich.SR4</cloud.version>
+    <boot.version>2.1.11.RELEASE</boot.version>
   </properties>
-
-  <!--这儿使用的 spring boot 版本为 2.0.5.RELEASE-->
-  <!--这儿使用的 spring boot 版本为 2.0.2.BUILD-SNAPSHOT-->
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.11.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+  <!--这儿使用的 spring boot 版本为 2.1.11.RELEASE-->
   <dependencies>
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
+      <version>${boot.version}</version>
+      <exclusions>
+          <exclusion>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+          </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.6</version>
     </dependency>
   </dependencies>
-  <dependencyManagement>
+  <!--<dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-netflix</artifactId>
-        <version>2.0.2.BUILD-SNAPSHOT</version>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${boot.version}</version>
         <type>pom</type>
-        <scope>import</scope>
+        <scope>runtime</scope>
       </dependency>
     </dependencies>
-  </dependencyManagement>
+  </dependencyManagement>-->
   <repositories>
     <repository>
       <id>spring-snapshots</id>
       <name>Spring Snapshots</name>
-      <url>https://repo.spring.io/libs-snapshot</url>
+      <url>https://repo.spring.io/snapshot</url>
       <snapshots>
         <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>spring-milestones</id>
+      <name>Spring Milestones</name>
+      <url>https://repo.spring.io/milestone</url>
+      <snapshots>
+        <enabled>false</enabled>
       </snapshots>
     </repository>
   </repositories>
