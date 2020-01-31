@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: service-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+      routes:
+        - id: add_request_header_route
+          uri: http://jarvan-iv.github.io/2019/10/02/spring%20cloud%E6%9C%8D%E5%8A%A1%E9%97%B4%E8%B0%83%E7%94%A8/
+          predicates:
+          - Path=/consumer/**
+          #filters:
+          #  - AddRequestHeader=X-Request-red, blue
+
+server:
+  port: 9005
+eureka:
+  client:
+    serviceUrl:
+      # eureka-server地址
+      defaultZone: http://127.0.0.1:8089/eureka/
