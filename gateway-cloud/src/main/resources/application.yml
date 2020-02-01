@@ -11,10 +11,58 @@ spring:
         - id: add_request_header_route
           uri: http://jarvan-iv.github.io/2019/10/02/spring%20cloud%E6%9C%8D%E5%8A%A1%E9%97%B4%E8%B0%83%E7%94%A8/
           predicates:
-          - Path=/consumer/**
+            - Path=/consumer/**
           #filters:
           #  - AddRequestHeader=X-Request-red, blue
 
+        - id: time_after_route
+          uri: http://www.ityouknow.com/
+          predicates:
+            - Path=/after/**
+            - After=2020-02-01T16:50:00+08:00[Asia/Shanghai]
+
+        - id: time_before_route
+          uri: http://www.ityouknow.com/
+          predicates:
+            - Path=/before/**
+            - Before=2020-02-01T18:00:00+08:00[Asia/Shanghai]
+
+        - id: time_between_route
+          uri: http://www.ityouknow.com/
+          predicates:
+            - Path=/between/**
+            - Between=2020-02-01T17:00:00+08:00[Asia/Shanghai], 2020-02-01T18:00:00+08:00[Asia/Shanghai]
+
+        - id: cookie_route
+          uri: http://www.ityouknow.com/
+          predicates:
+            - Cookie=chocolate, ch.p
+
+        - id: header_route
+          uri: http://www.ityouknow.com/
+          predicates:
+            - Header=X-Request-Id, \d+
+
+        - id: host_route
+          uri: http://www.ityouknow.com/
+          predicates:
+            - Host=**.somehost.org,**.anotherhost.org
+
+        - id: method_route
+          uri: http://www.ityouknow.com/
+          predicates:
+            - Method=GET,POST
+
+        - id: host_route
+          uri: http://www.ityouknow.com/
+          predicates:
+            - Path=/red/{segment},/blue/{segment}
+
+        - id: query_route
+          uri: http://www.ityouknow.com/
+          predicates:
+            - Path=/query/**
+            - Query=color, gree.
 server:
   port: 9005
 eureka:
@@ -22,3 +70,6 @@ eureka:
     serviceUrl:
       # eureka-server地址
       defaultZone: http://127.0.0.1:8089/eureka/
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
