@@ -51,7 +51,7 @@ spring:
         - id: method_route
           uri: http://www.ityouknow.com/
           predicates:
-            - Method=GET,POST
+            - Method=POST
 
         - id: host_route
           uri: http://www.ityouknow.com/
@@ -63,6 +63,17 @@ spring:
           predicates:
             - Path=/query/**
             - Query=color, gree.
+
+        - id: query_name_route
+          uri: http://www.ityouknow.com/
+          predicates:
+            - Path=/query/**
+            - Query=user
+
+        - id: remoteaddr_route
+          uri: https://example.org
+          predicates:
+            - RemoteAddr=192.168.1.1/24
 server:
   port: 9005
 eureka:
