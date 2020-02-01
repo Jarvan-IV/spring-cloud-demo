@@ -76,7 +76,9 @@ spring:
             - RemoteAddr=192.168.1.1/24
 
         - id: add_request_parameter_route
-          uri: http://localhost:9010/
+          #uri: http://localhost:9010/
+          #格式为：lb://应用注册服务名
+          uri: lb://SERVICE-PROVIDER
           filters:
             - AddRequestParameter=color, blue
           predicates:
