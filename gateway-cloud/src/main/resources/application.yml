@@ -74,6 +74,13 @@ spring:
           uri: https://example.org
           predicates:
             - RemoteAddr=192.168.1.1/24
+
+        - id: add_request_parameter_route
+          uri: http://localhost:9010/
+          filters:
+            - AddRequestParameter=color, blue
+          predicates:
+            - Method=GET
 server:
   port: 9005
 eureka:
