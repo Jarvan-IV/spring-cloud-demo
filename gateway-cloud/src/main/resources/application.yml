@@ -5,7 +5,8 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: false
+          #设为 true 便开启通过注册中心的自动根据 `serviceId` 创建路由的功能
+          enabled: true
       routes:
         - id: add_request_header_route
           uri: http://jarvan-iv.github.io/2019/10/02/spring%20cloud%E6%9C%8D%E5%8A%A1%E9%97%B4%E8%B0%83%E7%94%A8/
