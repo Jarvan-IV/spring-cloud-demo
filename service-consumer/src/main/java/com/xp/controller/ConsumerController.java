@@ -27,10 +27,4 @@ public class ConsumerController {
     public String getUserByFegin(@PathVariable("name") String name) {
         return "这是 通过feigin 调用的接口：" + feginRemoteInterface.hello(name);
     }
-
-    @RequestMapping("/file/{name}")
-    public String putFileByFegin(@PathVariable("name") String name) {
-        feginRemoteInterface.upload();
-        return "这是 通过feigin 调用的接口：" ;
-    }
 }

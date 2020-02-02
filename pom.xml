@@ -60,18 +60,6 @@
       </dependency>-->
     </dependencies>
   </dependencyManagement>
-
-  <!--<dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-dependencies</artifactId>
-        <version>${cloud.version}</version>
-        <type>pom</type>
-        <scope>runtime</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>-->
   <repositories>
     <repository>
       <id>spring-snapshots</id>
